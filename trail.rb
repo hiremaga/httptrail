@@ -13,7 +13,7 @@ get '/' do
       
       <h2>Try this:</h2>
       <code>
-        curl -i http://httptrail.heroku.com/hello
+        curl -i <a href="http://httptrail.heroku.com/hello" target="_blank">http://httptrail.heroku.com/hello</a>
       </code>
 
       <ul id="trail"></ul>
