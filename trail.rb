@@ -13,7 +13,7 @@ get '/' do
       
       <h2>Try this:</h2>
       <code>
-        curl -i <a href="http://httptrail.heroku.com/hello" target="_blank">http://httptrail.heroku.com/hello</a>
+        curl -i <a id='example' href="#">http://httptrail.heroku.com/hello</a>
       </code>
 
       <ul id="trail"></ul>
@@ -24,6 +24,11 @@ get '/' do
           var channel = pusher.subscribe('trail');
           channel.bind('request', function(request) {
             $('<li/>').html(JSON.stringify(request)).hide().prependTo('#trail').fadeIn('slow');
+          });
+
+          $('#example').click(function(e) {
+            e.preventDefault();
+            $.get('http://httptrail.heroku.com/hello');
           });
         });
       </script>
