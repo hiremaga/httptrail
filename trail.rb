@@ -1,5 +1,11 @@
 require 'sinatra'
 
+if ENV['RACK_ENV'] == 'production'
+  set :domain, 'httptrail.herokuapp.com'
+else
+  set :domain, 'localhost:9292'
+end
+
 get '/' do
   erb :index
 end

@@ -23,6 +23,6 @@
 
     $('#example').click(function(e) {
         e.preventDefault();
-        $.get('http://httptrail.herokuapp.com/hello');
+        $.get($('#example').text());
     });
 });
