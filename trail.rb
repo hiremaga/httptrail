@@ -30,7 +30,7 @@ get '/' do
 
           $('#example').click(function(e) {
             e.preventDefault();
-            $.get('http://httptrail.heroku.com/hello');
+            $.get('http://httptrail.herokuapp.com/hello');
           });
         });
       </script>
