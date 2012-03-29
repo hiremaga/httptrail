@@ -17,4 +17,6 @@ map '/assets' do
   run environment
 end
 
-run Sinatra::Application
+map '/' do
+  run Trail
+end
