@@ -12,9 +12,11 @@ get '*' do
   require 'cgi'
   require 'pusher'
 
-  Pusher.app_id = '16655'
-  Pusher.key    = 'c76a8d5a8c95fca62482'
-  Pusher.secret = 'ac24c5833b2197473312'
+  unless ENV['RACK_ENV'] == 'production'
+    Pusher.app_id = '17726'
+    Pusher.key    = '02362921b5f72e0fa84a'
+    Pusher.secret = '919a494088a3a998c81b'
+  end
 
   data = {received: Time.now, request: request.env}
   Pusher['trail'].trigger('request', data)

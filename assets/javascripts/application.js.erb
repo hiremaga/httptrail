@@ -3,8 +3,12 @@
 # = require_tree ./prettify
 
  $(function() {
-    var pusher = new Pusher('c76a8d5a8c95fca62482'),
-    channel = pusher.subscribe('trail');
+	<% if ENV['RACK_ENV'] == 'production' %>
+    var pusher = new Pusher('426643ab3928a4170600');
+	<% else %>
+    var pusher = new Pusher('02362921b5f72e0fa84a');
+	<% end %>
+    var channel = pusher.subscribe('trail');
     channel.bind('request',
     function(request) {
 
