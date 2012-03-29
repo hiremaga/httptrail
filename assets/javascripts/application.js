@@ -1,21 +1,24 @@
-#= require bootstrap
-#= require prettify
-#= require_tree ./prettify
+# = require bootstrap
+# = require prettify
+# = require_tree ./prettify
 
-$(function() {
+ $(function() {
+    var pusher = new Pusher('c76a8d5a8c95fca62482'),
+    channel = pusher.subscribe('trail');
+    channel.bind('request',
+    function(request) {
 
+        var $request = $('<pre/>', {
+            'class': 'prettyprint'
+        }).html(JSON.stringify(request, null, 2));
 
-  var pusher = new Pusher('c76a8d5a8c95fca62482'),
-      channel = pusher.subscribe('trail');
-  	channel.bind('request', function(request) {
-    var $request = $('<pre/>', {'class': 'prettyprint'}).html(JSON.stringify(request, null, 2));
-	$request.hide();
-	$request.prependTo('#trail').fadeIn('slow');
-		window.prettyPrint();
-  });
+        $request.hide().prependTo('#trail');
+        window.prettyPrint();
+	    $request.fadeIn('slow');
+    });
 
-  $('#example').click(function(e) {
-    e.preventDefault();
-    $.get('http://httptrail.herokuapp.com/hello');
-  });
+    $('#example').click(function(e) {
+        e.preventDefault();
+        $.get('http://httptrail.herokuapp.com/hello');
+    });
 });
