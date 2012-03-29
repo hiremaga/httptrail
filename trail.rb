@@ -15,7 +15,7 @@ get '/' do
       
       <h2>Try this:</h2>
       <code>
-        curl -i <a id='example' href="#">http://httptrail.heroku.com/hello</a>
+        curl -i <a id='example' href="#">http://httptrail.herokuapp.com/hello</a>
       </code>
 
       <ul id="trail"></ul>
