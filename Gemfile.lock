@@ -2,11 +2,19 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.6)
+    bootstrap-sass (2.0.1)
+    chunky_png (1.2.5)
+    compass (0.12.1)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    fssm (0.2.8.1)
     heroku (2.21.2)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       rubyzip
       term-ansicolor (~> 1.0.5)
+    hike (1.2.1)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mime-types (1.17.2)
@@ -22,12 +30,21 @@ GEM
       mime-types (>= 1.16)
     ruby-hmac (0.4.0)
     rubyzip (0.9.5)
+    sass (3.1.15)
     signature (0.1.2)
       ruby-hmac
     sinatra (1.3.2)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
+    sprockets (2.4.0)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    sprockets-sass (0.7.0)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
     term-ansicolor (1.0.7)
     tilt (1.3.3)
 
@@ -35,6 +52,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
+  compass
   heroku
   pusher
+  sass
   sinatra
+  sprockets
+  sprockets-sass
