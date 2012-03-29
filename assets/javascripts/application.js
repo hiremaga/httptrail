@@ -1,10 +1,17 @@
 #= require bootstrap
+#= require prettify
+#= require_tree ./prettify
 
 $(function() {
-  var pusher = new Pusher('c76a8d5a8c95fca62482');
-  var channel = pusher.subscribe('trail');
-  channel.bind('request', function(request) {
-    $('<li/>').html(JSON.stringify(request)).hide().prependTo('#trail').fadeIn('slow');
+
+
+  var pusher = new Pusher('c76a8d5a8c95fca62482'),
+      channel = pusher.subscribe('trail');
+  	channel.bind('request', function(request) {
+    var $request = $('<pre/>', {'class': 'prettyprint'}).html(JSON.stringify(request, null, 2));
+	$request.hide();
+	$request.prependTo('#trail').fadeIn('slow');
+		window.prettyPrint();
   });
 
   $('#example').click(function(e) {

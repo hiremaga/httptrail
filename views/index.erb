@@ -1,17 +1,27 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
     <title>HTTP Trail</title>
     <link href="/assets/application.css" rel="stylesheet" type="text/css"/>
   </head>
-  <body>
-    <h1>HTTP Trail</h1>
-    
-    <h2>Try this:</h2>
-    <code>
-      curl -i <a id='example' href="#">http://httptrail.herokuapp.com/hello</a>
-    </code>
 
-    <ul id="trail"></ul>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">HTTP Trail</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<div class="page-header">
+		Try this: <code> curl -i <a id='example' href="#">http://httptrail.herokuapp.com/hello</a> </code>
+		</div>
+		
+	    <section id="trail"></section>
+    </div>
 
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://js.pusher.com/1.11/pusher.min.js"></script>
