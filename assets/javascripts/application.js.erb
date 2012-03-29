@@ -11,10 +11,13 @@
     var channel = pusher.subscribe('trail');
     channel.bind('request',
     function(request) {
-
-        var $request = $('<pre/>', {
-            'class': 'prettyprint'
-        }).html(JSON.stringify(request, null, 2));
+        var $request = $('<li/>', {
+				value: $('#trail li').length + 1
+			}).html(
+				$('<pre/>', {
+		            'class': 'prettyprint'
+		        }).html(JSON.stringify(request, null, 2))
+			);
 
         $request.hide().prependTo('#trail');
         window.prettyPrint();
