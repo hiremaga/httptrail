@@ -1,42 +1,7 @@
 require 'sinatra'
 
 get '/' do
-<<-HTML
-  <html>
-    <head>
-      <title>HTTP Trail</title>
-      <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-      <script src="http://js.pusher.com/1.11/pusher.min.js"></script>
-      <script src="/assets/application.js"></script>
-      <link href="/assets/application.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
-      <h1>HTTP Trail</h1>
-      
-      <h2>Try this:</h2>
-      <code>
-        curl -i <a id='example' href="#">http://httptrail.herokuapp.com/hello</a>
-      </code>
-
-      <ul id="trail"></ul>
-
-      <script>
-        $(function() {
-          var pusher = new Pusher('c76a8d5a8c95fca62482');
-          var channel = pusher.subscribe('trail');
-          channel.bind('request', function(request) {
-            $('<li/>').html(JSON.stringify(request)).hide().prependTo('#trail').fadeIn('slow');
-          });
-
-          $('#example').click(function(e) {
-            e.preventDefault();
-            $.get('http://httptrail.herokuapp.com/hello');
-          });
-        });
-      </script>
-    </body>
-  </html>
-HTML
+  erb :index
 end
 
 get '/favicon.ico' do
