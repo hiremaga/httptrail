@@ -7,6 +7,8 @@ get '/' do
       <title>HTTP Trail</title>
       <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
       <script src="http://js.pusher.com/1.11/pusher.min.js"></script>
+      <script src="/assets/application.js"></script>
+      <link href="/assets/application.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
       <h1>HTTP Trail</h1>
