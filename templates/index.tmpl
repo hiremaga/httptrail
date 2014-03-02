@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTTP Trail</title>
+    <link href="/foundation-5.1.1/css/normalize.css" rel="stylesheet" type="text/css"/>
+    <link href="/foundation-5.1.1/css/foundation.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+          <h1>HTTP Trail</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <h4>Try this</h4>
+            <code id="try-this">curl -i <a id='example' href="/hello">/hello</a> </code>
+            <hr/>
+
+            <ul id="trail" class="no-bullet">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr />
+        <div class="row">
+          <div class="large-5 columns">
+            <p>© Copyright Abhi Hiremagalur</p>
+          </div>
+
+          <div class="large-7 columns">
+            <ul class="inline-list right">
+              <li><a href="https://github.com/hiremaga/httptrail">Github</a></li>
+              <li><a href="https://twitter.com/#!/hiremaga">@hiremaga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script>
+    $(function() {
+        var source = new EventSource('/events/');
+
+        source.onmessage = function(event) {
+          var request = JSON.parse(event.data),
+             $request = $('<li/>', { value: $('#trail li').length + 1 }).html(
+              $('<pre/>').html(JSON.stringify(request, null, 2))
+            );
+
+          $request.hide().prependTo('#trail');
+          $request.fadeIn('slow');
+        };
+
+        $('#example').click(function(e) {
+          e.preventDefault();
+          $.get($('#example').text());
+        });
+
+        $('#example').html(window.location.origin + "/hello");
+    });
+    </script>
+  </body>
+</html>

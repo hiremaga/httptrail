@@ -1,0 +1,19 @@
+{
+	"ImportPath": "github.com/hiremaga/httptrail",
+	"GoVersion": "go1.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/inject",
+			"Rev": "9aea7a2fa5b79ef7fc00f63a575e72df33b4e886"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/martini",
+			"Comment": "v0.1-125-g5c15794",
+			"Rev": "5c15794cd1e96cb20588274c7dcb08188e22646f"
+		},
+		{
+			"ImportPath": "github.com/martini-contrib/render",
+			"Rev": "68eb61a5313c3eff5625a16f6eee8f29b4835ff7"
+		}
+	]
+}
