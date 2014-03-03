@@ -11,7 +11,6 @@ import (
 
 func main() {
 	m := martini.Classic()
-	m.Use(martini.Static("assets"))
 	m.Use(render.Renderer())
 
 	m.Get("/", func(r render.Render) {
